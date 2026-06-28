@@ -26,78 +26,82 @@ export default function OrdersPage() {
 	}, [loaded]);
 
 	return (
-		<div
-			className="w-full min-h-[calc(100vh-100px)] flex justify-center p-10 relative bg-primary text-secondary"
-		>
+		<div className="w-full min-h-[calc(100vh-100px)] bg-[#0D1117] text-[#E6EDF3] py-16 px-4 md:px-8">
 			{loaded ? (
-				<table
-					className="w-full max-w-7xl table-auto border-separate border-spacing-0 rounded-2xl overflow-hidden shadow-xl bg-slate-900/40 border border-slate-800/80"
-				>
-					<thead className="sticky top-0 ">
-						<tr className="bg-secondary text-primary/95">
-							<th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-								Order ID
-							</th>
-                            <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                                Customer email
-							</th>
-                            <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                                Customer name
-                            </th>
-                            <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                                Date
-                            </th>
-                            <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                                Status
-                            </th>
-                            <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                                Total Amount
-                            </th>
-                            <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                                Actions
-                            </th>
-						</tr>
-					</thead>
+				<div className="max-w-6xl mx-auto space-y-6">
+					<div>
+						<h1 className="text-3xl font-extrabold tracking-tight text-white">My Orders</h1>
+						<p className="text-sm text-slate-400 mt-1">Review your hardware purchase logs and track shipment statuses.</p>
+					</div>
 
-					<tbody className="divide-y divide-secondary/10">
-						{orders.map((order, index) => {
-							return (
-								<tr
-									key={index}
-									className="odd:bg-primary/60 even:bg-slate-900/20 hover:bg-primary/90 transition-colors"
-								>
-								
-									<td className="px-4 py-3 text-sm font-medium text-secondary/90">
-										{order.orderId}
-									</td>
-                                    <td className="px-4 py-3 text-sm font-medium text-secondary/90">
-                                        {order.email}
-                                    </td>
-                                    <td className="px-4 py-3 text-sm font-medium text-secondary/90">
-                                        {order.name}
-                                    </td>
-                                    <td className="px-4 py-3 text-sm font-medium text-secondary/90">
-                                        {new Date(order.date).toLocaleDateString()}
-                                    </td>
-                                    <td className="px-4 py-3 text-sm font-medium text-secondary/90">
-                                        {order.status}
-                                    </td>
-                                    <td className="px-4 py-3 text-sm font-medium text-secondary/90">
-                                        LKR. {order.total.toFixed(2)}
-                                    </td>
-                                    <td className="px-4 py-3 text-sm font-medium text-secondary/90">
-										<ViewOrderInfoCustomer order={order} />
-                                    </td>
-									
-								</tr>
-							);
-						})}
-					</tbody>
-				</table>
+					{orders.length === 0 ? (
+						<div className="flex flex-col items-center justify-center p-16 text-center border border-dashed border-slate-800 rounded-2xl bg-slate-900/10 backdrop-blur-md shadow-lg">
+							<p className="text-lg font-semibold text-slate-400">No orders found.</p>
+							<p className="text-xs text-slate-500 mt-1">Your orders will show up here after completing a purchase.</p>
+						</div>
+					) : (
+						<div className="border border-slate-850 rounded-2xl overflow-hidden bg-slate-900/35 backdrop-blur-md shadow-2xl">
+							<div className="overflow-x-auto">
+								<table className="w-full table-auto text-left border-collapse">
+									<thead>
+										<tr className="bg-slate-950/80 border-b border-slate-850 text-slate-300 text-xs font-bold uppercase tracking-wider">
+											<th className="px-6 py-4">Order ID</th>
+											<th className="px-6 py-4">Customer Email</th>
+											<th className="px-6 py-4">Customer Name</th>
+											<th className="px-6 py-4">Date</th>
+											<th className="px-6 py-4">Status</th>
+											<th className="px-6 py-4">Total Amount</th>
+											<th className="px-6 py-4">Actions</th>
+										</tr>
+									</thead>
+									<tbody className="divide-y divide-slate-850">
+										{orders.map((order, index) => {
+											return (
+												<tr
+													key={index}
+													className="odd:bg-slate-900/25 even:bg-slate-950/20 hover:bg-slate-900/50 transition-colors text-slate-300 border-b border-slate-850/50"
+												>
+													<td className="px-6 py-4 text-sm font-semibold text-white">
+														{order.orderId}
+													</td>
+													<td className="px-6 py-4 text-sm text-slate-400">
+														{order.email}
+													</td>
+													<td className="px-6 py-4 text-sm text-slate-300 font-medium">
+														{order.name}
+													</td>
+													<td className="px-6 py-4 text-sm text-slate-400">
+														{new Date(order.date).toLocaleDateString()}
+													</td>
+													<td className="px-6 py-4 text-sm">
+														<span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
+															order.status === "completed" 
+																? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" 
+																: order.status === "pending" 
+																? "bg-amber-500/10 text-amber-400 border border-amber-500/20" 
+																: "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
+														}`}>
+															{order.status}
+														</span>
+													</td>
+													<td className="px-6 py-4 text-sm font-bold text-white">
+														LKR. {order.total.toFixed(2)}
+													</td>
+													<td className="px-6 py-4 text-sm">
+														<ViewOrderInfoCustomer order={order} />
+													</td>
+												</tr>
+											);
+										})}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					)}
+				</div>
 			) : (
-				<Loader />
+				<div className="py-20 flex justify-center"><Loader /></div>
 			)}
-
 		</div>
 	);
 }
