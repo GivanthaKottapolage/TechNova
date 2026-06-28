@@ -27,14 +27,11 @@ export default function OrdersPage() {
 
 	return (
 		<div
-			className="w-full flex justify-center p-10 relative
-      bg-gradient-to-b from-primary to-white text-secondary"
+			className="w-full min-h-[calc(100vh-100px)] flex justify-center p-10 relative bg-primary text-secondary"
 		>
 			{loaded ? (
 				<table
-					className="w-full max-w-7xl table-auto border-separate border-spacing-0
-        rounded-2xl overflow-hidden shadow-xl bg-white/70 
-        "
+					className="w-full max-w-7xl table-auto border-separate border-spacing-0 rounded-2xl overflow-hidden shadow-xl bg-slate-900/40 border border-slate-800/80"
 				>
 					<thead className="sticky top-0 ">
 						<tr className="bg-secondary text-primary/95">
@@ -67,7 +64,7 @@ export default function OrdersPage() {
 							return (
 								<tr
 									key={index}
-									className="odd:bg-primary/60 even:bg-white hover:bg-primary/90 transition-colors"
+									className="odd:bg-primary/60 even:bg-slate-900/20 hover:bg-primary/90 transition-colors"
 								>
 								
 									<td className="px-4 py-3 text-sm font-medium text-secondary/90">

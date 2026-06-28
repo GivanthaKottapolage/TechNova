@@ -25,11 +25,11 @@ export default function ProductPage() {
 				<Loader />
 			) : (
 				<div className="w-full flex justify-center p-4 flex-row flex-wrap  ">
-					<div className="w-full h-[100px] sticky top-0 bg-white flex justify-center items-center mb-4 shadow-md z-10">
+					<div className="w-full h-[100px] sticky top-0 bg-primary flex justify-center items-center mb-4 shadow-md z-10 border-b border-slate-800">
 						<input
 							type="text"
 							placeholder="Search products..."
-							className="w-1/2 px-4 py-2 border border-secondary/30 rounded-lg outline-none"							
+							className="w-1/2 px-4 py-2 border border-slate-700 bg-slate-900 text-white rounded-lg outline-none focus:border-accent focus:ring-1 focus:ring-accent"							
 							onChange={async (e) => {
 
 								if (e.target.value == "") {

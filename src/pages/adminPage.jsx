@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../components/loader";
 import AdminUsersPage from "./admin/adminUsersPage";
+import AdminReviewsPage from "./admin/adminReviewsPage";
 export default function AdminPage() {
     const [user, setUser] = useState(null);
 
@@ -34,48 +35,46 @@ export default function AdminPage() {
         })
     },[])
 	return (
-		<div className="w-full h-full flex bg-accent">
+		<div className="w-full h-screen flex bg-[#0D1117] text-[#E6EDF3] overflow-hidden">
             {user ?
 			<>
-				<div className="w-[300px] bg-accent h-full">
-					<div className="w-full h-[100px] flex items-center text-primary ">
-						<img src="/logo.png" className="h-full" />
-						<h1 className="text-2xl">Admin</h1>
+				<div className="w-[280px] bg-[#0D1117] h-full flex flex-col border-r border-slate-800 shrink-0">
+					<div className="w-full h-[80px] flex items-center px-6 gap-3 border-b border-slate-800">
+						<img src="/logo.png" className="h-10 w-10 object-contain rounded-lg" />
+						<h1 className="text-xl font-bold tracking-wide text-white">Admin Panel</h1>
 					</div>
-					<div className="w-full h-[400px] text-white text-2xl flex flex-col pl-[20px] pt-[20px]">
+					<div className="w-full py-6 px-4 text-slate-300 text-base flex flex-col gap-1">
 						<Link
 							to="/admin"
-							className="w-full flex items-center h-[50px] gap-[10px]"
+							className="w-full flex items-center h-[48px] px-3 gap-3 rounded-xl hover:bg-slate-800/50 hover:text-cyan-400 transition-all duration-150"
 						>
-							{" "}
-							<LuClipboardList />
-							Orders
+							<LuClipboardList size={18} />
+							<span>Orders</span>
 						</Link>
 						<Link
 							to="/admin/products"
-							className="w-full flex items-center h-[50px] gap-[10px]"
+							className="w-full flex items-center h-[48px] px-3 gap-3 rounded-xl hover:bg-slate-800/50 hover:text-cyan-400 transition-all duration-150"
 						>
-							{" "}
-							<LuBoxes />
-							Products
+							<LuBoxes size={18} />
+							<span>Products</span>
 						</Link>
 						<Link
 							to="/admin/users"
-							className="w-full flex items-center h-[50px] gap-[10px]"
+							className="w-full flex items-center h-[48px] px-3 gap-3 rounded-xl hover:bg-slate-800/50 hover:text-cyan-400 transition-all duration-150"
 						>
-							<FiUsers />
-							Users
+							<FiUsers size={18} />
+							<span>Users</span>
 						</Link>
 						<Link
 							to="/admin/reviews"
-							className="w-full flex items-center h-[50px] gap-[10px]"
+							className="w-full flex items-center h-[48px] px-3 gap-3 rounded-xl hover:bg-slate-800/50 hover:text-cyan-400 transition-all duration-150"
 						>
-							<MdOutlineRateReview />
-							Reviews
+							<MdOutlineRateReview size={18} />
+							<span>Reviews</span>
 						</Link>
 					</div>
 				</div>
-				<div className="w-[calc(100%-300px)] h-full max-h-full bg-primary border-[10px] border-accent rounded-3xl overflow-y-scroll ">
+				<div className="w-[calc(100%-280px)] h-full bg-slate-50 overflow-y-auto">
 					<Routes>
 						<Route path="/" element={<AdminOrdersPage />} />
 						<Route path="/products" element={<AdminProductsPage />} />
@@ -85,8 +84,7 @@ export default function AdminPage() {
 							element={<AdminUpdateProductPage />}
 						/>
 						<Route path="/users" element={<AdminUsersPage />} />
-						<Route path="/reviews" element={<h1>Reviews</h1>} />
-						
+						<Route path="/reviews" element={<AdminReviewsPage />} />
 					</Routes>
 				</div>
 			</>:

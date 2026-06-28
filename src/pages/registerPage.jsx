@@ -68,23 +68,23 @@ export default function RegisterPage() {
 	}
 
 	return (
-		<div className="w-full h-screen bg-[url('/bg.jpg')] bg-center bg-cover bg-no-repeat flex">            
-			<div className="w-[50%] h-full flex justify-center items-center flex-col p-[50px]">
+		<div className="w-full h-screen bg-[url('/bg.jpg')] bg-center bg-cover bg-no-repeat flex flex-col md:flex-row">            
+			<div className="w-full md:w-[50%] h-1/2 md:h-full flex justify-center items-center flex-col p-[30px] md:p-[50px] bg-slate-950/40 backdrop-blur-xs">
 				<img
 					src="/logo.png"
 					alt="logo"
-					className="w-[200px] h-[200px] mb-[20px] object-cover"
+					className="w-[120px] h-[120px] mb-4 object-contain rounded-2xl shadow-lg border border-slate-700/50 bg-slate-900/10 p-2"
 				/>
-				<h1 className="text-[50px] text-gold text-shadow-accent text-shadow-2xs text-center font-bold">
+				<h1 className="text-[32px] md:text-[42px] leading-tight text-gold text-center font-extrabold tracking-tight mb-2">
 					Plug In. Power Up. Play Hard.
 				</h1>
-				<p className="text-[30px] text-white italic">
+				<p className="text-[18px] md:text-[22px] text-white/95 font-medium italic text-center max-w-md">
 					Your Ultimate Destination for Gaming Gear
 				</p>
 			</div>
-			<div className="w-[50%] h-full flex justify-center items-center">
-				<div className="w-[450px] h-[600px] backdrop-blur-lg shadow-2xl rounded-2xl flex flex-col justify-center items-center p-[30px]">
-					<h1 className="text-[20px] font-semibold mb-[20px] text-white text-shadow-white ">
+			<div className="w-full md:w-[50%] h-1/2 md:h-full flex justify-center items-center p-4">
+				<div className="w-[450px] max-w-full h-[580px] bg-slate-950/80 border border-slate-800/80 backdrop-blur-md shadow-2xl rounded-3xl flex flex-col justify-center items-center p-[30px] md:p-[40px]">
+					<h1 className="text-[32px] font-bold mb-[24px] text-white">
 						Register
 					</h1>
 					<input
@@ -93,7 +93,7 @@ export default function RegisterPage() {
 						}}
 						type="text"
 						placeholder="your first name"
-						className="w-full h-[50px] mb-[20px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold"
+						className="w-full h-[46px] mb-[12px] rounded-xl border border-slate-850 p-[10px] text-[16px] bg-slate-900/80 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent"
 					/>
                     <input
                         onChange={(e) => {  
@@ -101,7 +101,7 @@ export default function RegisterPage() {
                         }}
                         type="text"
                         placeholder="your last name"
-                        className="w-full h-[50px] mb-[20px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold"
+                        className="w-full h-[46px] mb-[12px] rounded-xl border border-slate-850 p-[10px] text-[16px] bg-slate-900/80 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent"
                     />
 					<input
 						onChange={(e) => {
@@ -109,7 +109,7 @@ export default function RegisterPage() {
 						}}
 						type="email"
 						placeholder="your email"
-						className="w-full h-[50px] mb-[20px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold"
+						className="w-full h-[46px] mb-[12px] rounded-xl border border-slate-850 p-[10px] text-[16px] bg-slate-900/80 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent"
 					/>
 					<input
 						onChange={(e) => {
@@ -117,7 +117,7 @@ export default function RegisterPage() {
 						}}
 						type="password"
 						placeholder="your password"
-						className="w-full h-[50px] mb-[20px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold"
+						className="w-full h-[46px] mb-[12px] rounded-xl border border-slate-850 p-[10px] text-[16px] bg-slate-900/80 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent"
 					/>
                     <input
                         onChange={(e) => {
@@ -125,19 +125,18 @@ export default function RegisterPage() {
                         }}
                         type="password"
                         placeholder="confirm your password"
-                        className="w-full h-[50px] mb-[20px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold"
+                        className="w-full h-[46px] mb-[20px] rounded-xl border border-slate-850 p-[10px] text-[16px] bg-slate-900/80 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent"
                     />
-
 					
 					<button
 						onClick={register}
-						className="w-full h-[50px] bg-accent text-white font-bold text-[20px] rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-accent"
+						className="w-full h-[50px] mb-[16px] bg-accent text-slate-950 font-bold text-[18px] rounded-xl border-2 border-accent hover:bg-slate-900 hover:text-accent transition-all duration-200 cursor-pointer"
 					>
 						Register Now
 					</button>
-					<p className="text-white not-italic">
-						Already have an account?
-						<Link to="/login" className="text-gold italic">
+					<p className="text-white/80 text-sm">
+						Already have an account?{" "}
+						<Link to="/login" className="text-gold font-semibold hover:underline">
 							Login here
 						</Link>
 					</p>

@@ -75,23 +75,23 @@ export default function LoginPage() {
 	}
 
 	return (
-		<div className="w-full h-screen bg-[url('/bg.jpg')] bg-center bg-cover bg-no-repeat flex">
-			<div className="w-[50%] h-full flex justify-center items-center flex-col p-[50px]">
+		<div className="w-full h-screen bg-[url('/bg.jpg')] bg-center bg-cover bg-no-repeat flex flex-col md:flex-row">
+			<div className="w-full md:w-[50%] h-1/2 md:h-full flex justify-center items-center flex-col p-[30px] md:p-[50px] bg-slate-950/40 backdrop-blur-xs">
 				<img
 					src="/logo.png"
 					alt="logo"
-					className="w-[200px] h-[200px] mb-[20px] object-cover"
+					className="w-[120px] h-[120px] mb-4 object-contain rounded-2xl shadow-lg border border-slate-700/50 bg-slate-900/10 p-2"
 				/>
-				<h1 className="text-[50px] text-gold text-shadow-accent text-shadow-2xs text-center font-bold">
+				<h1 className="text-[32px] md:text-[42px] leading-tight text-gold text-center font-extrabold tracking-tight mb-2">
 					Plug In. Power Up. Play Hard.
 				</h1>
-				<p className="text-[30px] text-white italic">
+				<p className="text-[18px] md:text-[22px] text-white/95 font-medium italic text-center max-w-md">
 					Your Ultimate Destination for Gaming Gear
 				</p>
 			</div>
-			<div className="w-[50%] h-full flex justify-center items-center">
-				<div className="w-[450px] h-[600px] backdrop-blur-lg shadow-2xl rounded-2xl flex flex-col justify-center items-center p-[30px]">
-					<h1 className="text-[40px] font-bold mb-[20px] text-white text-shadow-white ">
+			<div className="w-full md:w-[50%] h-1/2 md:h-full flex justify-center items-center p-4">
+				<div className="w-[450px] max-w-full h-[580px] bg-slate-950/80 border border-slate-800/80 backdrop-blur-md shadow-2xl rounded-3xl flex flex-col justify-center items-center p-[30px] md:p-[40px]">
+					<h1 className="text-[32px] font-bold mb-[24px] text-white">
 						Login
 					</h1>
 					<input
@@ -100,7 +100,7 @@ export default function LoginPage() {
 						}}
 						type="email"
 						placeholder="your email"
-						className="w-full h-[50px] mb-[20px] rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold"
+						className="w-full h-[50px] mb-[16px] rounded-xl border border-slate-850 p-[10px] text-[16px] bg-slate-900/80 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent"
 					/>
 					<input
 						onChange={(e) => {
@@ -108,27 +108,30 @@ export default function LoginPage() {
 						}}
 						type="password"
 						placeholder="your password"
-						className="w-full h-[50px]  rounded-lg border border-accent p-[10px] text-[20px] focus:outline-none focus:ring-2 focus:ring-gold"
+						className="w-full h-[50px] mb-[12px] rounded-xl border border-slate-850 p-[10px] text-[16px] bg-slate-900/80 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent"
 					/>
-					<p className="text-white not-italic w-full mb-[20px] text-right">
-						Forget your password?
-						<Link to="/forgot-password" className="text-gold italic">
+					<p className="text-white/80 text-xs w-full mb-[24px] text-right">
+						Forget your password?{" "}
+						<Link to="/forgot-password" className="text-gold font-semibold hover:underline">
 							Reset it here
 						</Link>
 					</p>
 
 					<button
 						onClick={login}
-						className="w-full h-[50px] mb-[20px] bg-accent text-white font-bold text-[20px] rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-accent"
+						className="w-full h-[50px] mb-[16px] bg-accent text-slate-950 font-bold text-[18px] rounded-xl border-2 border-accent hover:bg-slate-900 hover:text-accent transition-all duration-200 cursor-pointer"
 					>
 						Login
 					</button>
-					<button onClick={googleLogin} className="w-full h-[50px] bg-accent text-white font-bold text-[20px] rounded-lg border-[2px] border-accent hover:bg-transparent hover:text-accent">
-						Login with <GrGoogle className="inline ml-2 mb-1" />
+					<button 
+						onClick={googleLogin} 
+						className="w-full h-[50px] mb-[20px] bg-accent text-slate-950 font-bold text-[18px] rounded-xl border-2 border-accent hover:bg-slate-900 hover:text-accent transition-all duration-200 cursor-pointer"
+					>
+						Login with <GrGoogle className="inline ml-1 mb-0.5" />
 					</button>
-					<p className="text-white not-italic">
-						Don't have an account?
-						<Link to="/register" className="text-gold italic">
+					<p className="text-white/80 text-sm">
+						Don't have an account?{" "}
+						<Link to="/register" className="text-gold font-semibold hover:underline">
 							Register here
 						</Link>
 					</p>

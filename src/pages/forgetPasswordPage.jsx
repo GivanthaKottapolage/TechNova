@@ -55,50 +55,50 @@ export default function ForgetPasswordPage() {
 	}
 
 	return (
-		<div className="w-full h-full flex flex-col justify-center items-center">
+		<div className="w-full min-h-[calc(100vh-100px)] flex flex-col justify-center items-center bg-primary">
 			{loading && <Loader />}
 			{otpSent ? (
-				<div className="w-[400px] h-[500px] flex flex-col justify-center items-center bg-white rounded-lg shadow-lg p-8">
-					<h2 className="text-2xl font-bold mb-4">
+				<div className="w-[400px] h-[500px] flex flex-col justify-center items-center bg-slate-900/60 border border-slate-800/80 text-white rounded-3xl p-8 backdrop-blur-md shadow-2xl">
+					<h2 className="text-2xl font-bold mb-6 text-center">
 						Enter OTP and New Password
 					</h2>
 					<input
 						type="text"
 						placeholder="Enter OTP"
-						className="w-full p-2 mb-4 border border-gray-300 rounded"
+						className="w-full p-3 mb-4 rounded-xl border border-slate-700 bg-slate-950 text-white focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
 						onChange={(e) => setOtp(e.target.value)}
 					/>
 					<input
 						type="password"
 						placeholder="Enter New Password"
-						className="w-full p-2 mb-4 border border-gray-300 rounded"
+						className="w-full p-3 mb-4 rounded-xl border border-slate-700 bg-slate-950 text-white focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
 						onChange={(e) => setNewPassword(e.target.value)}
 					/>
 					<input
 						type="password"
 						placeholder="Confirm New Password"
-						className="w-full p-2 mb-4 border border-gray-300 rounded"
+						className="w-full p-3 mb-6 rounded-xl border border-slate-700 bg-slate-950 text-white focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
 						onChange={(e) => setConfirmPassword(e.target.value)}
 					/>
 					<button
 						onClick={resetPassword}
-						className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+						className="w-full bg-accent text-slate-950 font-bold p-3 rounded-full hover:bg-accent/90 transition cursor-pointer"
 					>
 						Reset Password
 					</button>
 				</div>
 			) : (
-				<div className="w-[400px] h-[400px] flex flex-col justify-center items-center bg-white rounded-lg shadow-lg p-8">
-					<h2 className="text-2xl font-bold mb-4">Reset Your Password</h2>
+				<div className="w-[400px] h-[400px] flex flex-col justify-center items-center bg-slate-900/60 border border-slate-800/80 text-white rounded-3xl p-8 backdrop-blur-md shadow-2xl">
+					<h2 className="text-2xl font-bold mb-6 text-center">Reset Your Password</h2>
 					<input
 						type="email"
 						placeholder="Enter your email"
-						className="w-full p-2 mb-4 border border-gray-300 rounded"
+						className="w-full p-3 mb-6 rounded-xl border border-slate-700 bg-slate-950 text-white focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
 						onChange={(e) => setEmail(e.target.value)}
 					/>
 					<button
 						onClick={sendOtp}
-						className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+						className="w-full bg-accent text-slate-950 font-bold p-3 rounded-full hover:bg-accent/90 transition cursor-pointer"
 					>
 						Send OTP
 					</button>
