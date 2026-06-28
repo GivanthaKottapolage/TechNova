@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme{
+    --color-primary:#F4F8FB;
+    --color-secondary:#0F172A;
+    --color-accent:#79716B;
+    --color-green:#38D5BE;
+}
+
+@layer base {
+  /* Targets the entire scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Targets the track (background) */
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  /* Targets the thumb (the moving part) */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-400 rounded-full border-2 border-slate-100;
+  }
+
+  /* Hover effect for the thumb */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500;
+  }
+}
