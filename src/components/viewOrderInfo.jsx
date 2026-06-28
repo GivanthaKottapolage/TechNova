@@ -188,23 +188,23 @@ export default function ViewOrderInfo(props) {
 						</div>
 
 						{/* Address */}
-						<div className="border border-secondary/10 rounded-xl p-4 bg-white/60">
-							<p className="text-xs font-semibold tracking-wide text-secondary/60 uppercase mb-1">
+						<div className="border border-slate-800 rounded-xl p-4 bg-slate-900/40">
+							<p className="text-xs font-semibold tracking-wide text-slate-400 uppercase mb-1">
 								Delivery Address
 							</p>
-							<p className="text-sm text-secondary whitespace-pre-line">
+							<p className="text-sm text-white whitespace-pre-line">
 								{order.address}
 							</p>
 						</div>
 
 						{/* Notes (if any) */}
 
-						<div className="border border-secondary/10 rounded-xl p-4 bg-white/60">
-							<p className="text-xs font-semibold tracking-wide text-secondary/60 uppercase mb-1">
+						<div className="border border-slate-800 rounded-xl p-4 bg-slate-900/40">
+							<p className="text-xs font-semibold tracking-wide text-slate-400 uppercase mb-1">
 								Additional Notes
 							</p>
 							<textarea
-								className="text-sm text-secondary whitespace-pre-line w-full outline-0"
+								className="text-sm text-white whitespace-pre-line w-full bg-transparent outline-0 resize-none border-0"
 								value={notes}
 								onChange={(e) => {
 									if (e.target.value == "") {
@@ -213,23 +213,24 @@ export default function ViewOrderInfo(props) {
 										setNotes(e.target.value);
 									}
 								}}
+								rows={2}
 							></textarea>
 						</div>
 
 						{/* Items */}
-						<div className="border border-secondary/10 rounded-xl bg-white overflow-hidden">
-							<div className="flex items-center justify-between px-4 py-3 border-b border-secondary/10 bg-secondary/5">
-								<p className="text-sm font-semibold text-secondary">
+						<div className="border border-slate-800 rounded-xl bg-slate-900/40 overflow-hidden">
+							<div className="flex items-center justify-between px-4 py-3 border-b border-slate-800 bg-slate-950/40">
+								<p className="text-sm font-semibold text-white">
 									Items in this order
 								</p>
-								<p className="text-xs text-secondary/60">
+								<p className="text-xs text-slate-400">
 									{order.items?.length || 0} item
 									{(order.items?.length || 0) !== 1 ? "s" : ""}
 								</p>
 							</div>
 
 							{Array.isArray(order.items) && order.items.length > 0 ? (
-								<div className="max-h-64 overflow-y-auto divide-y divide-secondary/10">
+								<div className="max-h-64 overflow-y-auto divide-y divide-slate-800">
 									{order.items.map((item, index) => {
 										const lineTotal = (item.price || 0) * (item.quantity || 0);
 										return (
@@ -239,7 +240,7 @@ export default function ViewOrderInfo(props) {
 											>
 												{/* Thumbnail */}
 												<div className="flex-shrink-0">
-													<div className="w-14 h-14 rounded-lg overflow-hidden bg-secondary/5 flex items-center justify-center">
+													<div className="w-14 h-14 rounded-lg overflow-hidden bg-slate-950/50 flex items-center justify-center border border-slate-850">
 														{item.image ? (
 															<img
 																src={item.image}
@@ -247,7 +248,7 @@ export default function ViewOrderInfo(props) {
 																className="w-full h-full object-cover"
 															/>
 														) : (
-															<span className="text-xs text-secondary/40">
+															<span className="text-xs text-slate-500">
 																No image
 															</span>
 														)}
@@ -256,20 +257,20 @@ export default function ViewOrderInfo(props) {
 
 												{/* Details */}
 												<div className="flex-1 min-w-0">
-													<p className="text-sm font-semibold text-secondary truncate">
+													<p className="text-sm font-semibold text-white truncate">
 														{item.name}
 													</p>
-													<p className="text-xs text-secondary/60 mt-0.5">
+													<p className="text-xs text-slate-400 mt-0.5">
 														Product ID:{" "}
 														<span className="font-medium">
 															{item.productID}
 														</span>
 													</p>
-													<p className="text-xs text-secondary/60 mt-0.5">
+													<p className="text-xs text-slate-400 mt-0.5">
 														Qty:{" "}
-														<span className="font-medium">{item.quantity}</span>{" "}
+														<span className="font-medium text-white">{item.quantity}</span>{" "}
 														&nbsp;|&nbsp; Unit Price:{" "}
-														<span className="font-medium">
+														<span className="font-medium text-white">
 															{formatCurrency(item.price)}
 														</span>
 													</p>
@@ -277,7 +278,7 @@ export default function ViewOrderInfo(props) {
 
 												{/* Line total */}
 												<div className="flex-shrink-0 text-right">
-													<p className="text-sm font-semibold text-secondary">
+													<p className="text-sm font-bold text-accent">
 														{formatCurrency(lineTotal)}
 													</p>
 												</div>
@@ -286,7 +287,7 @@ export default function ViewOrderInfo(props) {
 									})}
 								</div>
 							) : (
-								<div className="px-4 py-6 text-center text-sm text-secondary/60">
+								<div className="px-4 py-6 text-center text-sm text-slate-400">
 									No items found for this order.
 								</div>
 							)}
