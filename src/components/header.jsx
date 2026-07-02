@@ -43,29 +43,36 @@ export default function Header() {
 									className="text-white my-auto text-2xl ml-6 lg:hidden rotate-180"
 								/>
 							</div>
-							<div className="w-full h-full flex flex-col text-xl text-secondary justify-start items-start  gap-6 mt-10 pl-6">
-								<a
-									className="hover:text-secondary transition"
-									href="/"
+							<div className="w-full h-full flex flex-col text-xl text-primary justify-start items-start  gap-6 mt-10 pl-6">
+								<Link
+									className="hover:text-accent transition"
+									to="/"
 									onClick={() => setSideBarOpen(false)}
 								>
 									Home
-								</a>
-								<a
-									className="hover:text-secondary transition"
-									href="/products"
+								</Link>
+								<Link
+									className="hover:text-accent transition"
+									to="/products"
 									onClick={() => setSideBarOpen(false)}
 								>
 									Products
-								</a>
-								<a
-									className="hover:text-secondary transition"
-									href="/about"
+								</Link>
+								<Link
+									className="hover:text-accent transition"
+									to="/about"
 									onClick={() => setSideBarOpen(false)}
 								>
 									About
-								</a>
-								<div className=" flex justify-center bg-accent p-2 rounded-full">
+								</Link>
+								<Link
+									className="hover:text-accent transition"
+									to="/contact"
+									onClick={() => setSideBarOpen(false)}
+								>
+									Contact
+								</Link>
+								<div className=" flex justify-center bg-accent p-2 rounded-full text-white">
 									<UserData />
 								</div>
 							</div>
